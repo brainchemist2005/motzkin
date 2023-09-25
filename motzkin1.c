@@ -10,7 +10,7 @@ int counter(int i)
 }
 
 int main(int argc, char * argv[]){
-	int * x[5] = {0} ,y[5] = {0};
+	int x[5] = {0} ,y[5] = {0};
 
 	char * arg = argv[1];
 
@@ -21,16 +21,16 @@ int main(int argc, char * argv[]){
 
 	for(int i=0; i<5 ; i++) {
 	if(arg[i] == 'u'){
-		x[i] = x[counter(i)]++;
-		y[i] = y[counter(i)]++;
+		x[i] = x[counter(i)] + 1 ;
+		y[i] = y[counter(i)] + 1;
 	}
 	else if(arg[i] == 'd'){
-		x[i] = x[counter(i)]--;
-		y[i]= y[counter(i)]++;
+		x[i] = x[counter(i)]-1;
+		y[i]= y[counter(i)]+1;
 		
 	}
 	else if(arg[i] == 'r'){
-		y[i] = y[counter(i)]++;
+		y[i] = y[counter(i)]+1;
 	}
 	else{ 
 		fprintf(stderr, "error:unrecognized step %c",arg[i]);
